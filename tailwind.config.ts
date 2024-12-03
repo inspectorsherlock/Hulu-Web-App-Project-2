@@ -1,18 +1,18 @@
-import type { Config } from "tailwindcss";
+import scrollbarHide from "tailwind-scrollbar-hide";
 
-export default {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+module.exports = {
+  mode: "jit",
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      screens: {
+        "3xl": "2000px",
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  variants: {
+    extend: {},
+  },
+  plugins: [scrollbarHide], // Use the imported plugin
+};
